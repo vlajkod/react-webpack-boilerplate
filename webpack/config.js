@@ -112,7 +112,7 @@ const rules = [
 if (IS_PRODUCTION) {
     rules.push(
         {
-            test: /\.css$/,
+            test: /\.(scss)$/,
             use: [
                 MiniCssExtractPlugin.loader,
                 {
@@ -121,6 +121,9 @@ if (IS_PRODUCTION) {
                         importLoaders: 1,
                         minimize: true
                     }
+                },
+                {
+                    loader: 'sass-loader'
                 }
             ]
         }
@@ -128,7 +131,7 @@ if (IS_PRODUCTION) {
 } else {
     rules.push(
         {
-            test: /\.css$/,
+            test: /\.(scss)$/,
             exclude: /node_modules/,
             use: [
                 {
@@ -141,6 +144,12 @@ if (IS_PRODUCTION) {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 1,
+                        sourceMap: true
+                    }
+                },
+                {
+                    loader: 'sass-loader',
+                    options: {
                         sourceMap: true
                     }
                 }
