@@ -8,7 +8,7 @@ const outputFiles = require('./output-files').outputFiles;
 const paths = {
     source: path.join(__dirname, '../src'),
     assets: path.join(__dirname, '../src/assets/'),
-    css: path.join(__dirname, '../src/css/'),
+    css: path.join(__dirname, '../src/scss/'),
     fonts: path.join(__dirname, '../src/assets/fonts/'),
     images: path.join(__dirname, '../src/assets/img'),
     javascript: path.join(__dirname, '../src/js'),
@@ -112,26 +112,25 @@ const rules = [
 if (IS_PRODUCTION) {
     rules.push(
         {
-            test: /\.(scss)$/,
+            test: /\.scss$/,
             use: [
                 MiniCssExtractPlugin.loader,
                 {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 2,
                         minimize: true
                     }
                 },
-                {
-                    loader: 'sass-loader'
-                }
+                'postcss-loader',
+                'sass-loader'
             ]
         }
     );
 } else {
     rules.push(
         {
-            test: /\.(scss)$/,
+            test: /\.scss$/,
             exclude: /node_modules/,
             use: [
                 {
@@ -143,9 +142,13 @@ if (IS_PRODUCTION) {
                 {
                     loader: 'css-loader',
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 2,
                         sourceMap: true
                     }
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: { sourceMap: true },
                 },
                 {
                     loader: 'sass-loader',
@@ -174,7 +177,7 @@ const stats = {
 
 
 const resolve = {
-    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
+    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.css', '.scss'],
     modules: [
         'node_modules',
         paths.javascript,
