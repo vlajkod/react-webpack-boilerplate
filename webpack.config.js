@@ -52,7 +52,7 @@ if (IS_DEVELOPMENT) {
 
 module.exports = {
     mode: IS_PRODUCTION ? 'production' : 'development',
-    devtool: IS_PRODUCTION ? false : 'cheap-eval-source-map',
+    devtool: IS_PRODUCTION ? false : 'source-map',
     context: paths.javascript,
     watch: IS_DEVELOPMENT,
     entry,

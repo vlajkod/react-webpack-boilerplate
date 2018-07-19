@@ -5,9 +5,6 @@ import { routesCodes } from 'constants/routes';
 
 const Menu = () => (
     <div className='menu'>
-        {/* <div className='menu-logo'>
-            logo
-        </div> */}
         <div className='menu-links'>
             <NavLink
                 className='menu-link'
