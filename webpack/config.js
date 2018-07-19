@@ -10,7 +10,7 @@ const paths = {
     assets: path.join(__dirname, '../src/assets/'),
     css: path.join(__dirname, '../src/scss/'),
     fonts: path.join(__dirname, '../src/assets/fonts/'),
-    images: path.join(__dirname, '../src/assets/img'),
+    images: path.join(__dirname, '../src/assets/img/'),
     javascript: path.join(__dirname, '../src/js'),
     svg: path.join(__dirname, '../src/assets/svg'),
     build: path.join(__dirname, '../build')
@@ -177,7 +177,7 @@ const stats = {
 
 
 const resolve = {
-    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.css', '.scss'],
+    extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
     modules: [
         'node_modules',
         paths.javascript,

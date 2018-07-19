@@ -20,7 +20,7 @@ export default () => {
         middleware = applyMiddleware(sagaMiddleware);
     } else {
         //In development mode beside sagaMiddleware
-        // logger adn DevTools are added
+        // logger and DevTools are added
         middleware = applyMiddleware(sagaMiddleware);
 
         // Enable DevTools if browser extension is installed
@@ -46,7 +46,7 @@ export default () => {
         module.hot.accept('../reducers', () => {
             const nextRootReducer = require('../reducers/index').default; // eslint-disable-line
             store.replaceReducer(nextRootReducer);
-        })
+        });
     }
 
     // Return store only
