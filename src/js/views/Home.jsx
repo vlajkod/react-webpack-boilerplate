@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
+import ReactIconSvg from 'svg/react-icon.svg';
+
 export default class Home extends Component {
     render() {
         return (
-            <div class="home">
+            <div className="home">
                 <div>
-                    <h1>Home Page</h1>
+                    <h1>React, Redux, Redux Saga</h1>
                 </div>
                 <div>
-                    
+                    <ReactIconSvg />
                 </div>
             </div>
         );

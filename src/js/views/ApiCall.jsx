@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { getPublicApi } from 'actions/public-api';
 
-
 @connect(state => ({
     publicApi: state.publicApi.publicApi,
     loading: state.publicApi.loading,
@@ -30,7 +29,7 @@ export default class ApiCall extends Component {
        return publicApis.map((api, i) => {
            return(
                <div key={api.Link}>
-                   <p>{api.Description}</p>
+                   <a href={ api.Link}>{api.Description}</a>
                </div>
            )
        })
@@ -42,12 +41,13 @@ export default class ApiCall extends Component {
             loading
         } = this.props;
         return (
-            <div class="countries">
+            <div className="public-api">
                 <h1>Public Apis</h1>
-                {publicApi && Object.keys(publicApi).map(category => {
+                {loading && <p>Loading...</p>}
+                {!loading && publicApi && Object.keys(publicApi).map((category, i) => {
                     const list = publicApi[category];
                     return (
-                        <div>
+                        <div className='public-api__item' key={i}>
                             <h4>{category}</h4>
                             { this.renderFreeApi(list) }
                         </div>
