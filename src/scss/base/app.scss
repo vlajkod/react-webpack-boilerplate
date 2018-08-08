@@ -3,33 +3,40 @@ html {
 }
   
 body {
-    color: $black;
+    color: $app-black;
     font-family: $font-family-sans-serif;
 }
 
+a {
+    color: $app-gray;
+    &:hover {
+        color: $app-black;
+    }
+}
+  
 .app {
     font-size: 1.8rem;
-    background: #f2f2f2;
+    background: $body-background;
     display: flex;
     flex-direction: column;
 }
 
 .menu {
-    background: $black;
+    background: $app-black;
     padding: 10px 30px;
     width: 1200px;
     margin: 0 auto;
-    color: white;
+    color: $app-white;
 }
 
 .menu-link {
     display: inline-block;
-    color: #969696;
+    color: $app-gray;
     margin-left: 1.5rem;
     line-height: 3rem;
     text-decoration: none;
-    &.menu-link--active {
-        color: white;
+    &.menu-link--active, &:hover {
+        color: $app-white;
     }
 }
 
@@ -37,11 +44,20 @@ body {
 .page {
     width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: $app-white;
     height: calc(100vh - 50px);
     padding: 20px;
     overflow: auto;
 }
+
+.home {
+    text-align: center;
+}
+
+.public-api {
+    padding: 20px;
+}
+
 
 .not-found {
     background-image: url('../assets/img/page-not-found.png');

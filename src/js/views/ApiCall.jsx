@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { getPublicApi } from 'actions/public-api';
 
-
 @connect(state => ({
     publicApi: state.publicApi.publicApi,
     loading: state.publicApi.loading,
