@@ -15,7 +15,7 @@ const store = configureStore().store;
 
 ReactDOM.render(
     <AppContainer>
-        <Provider store = { store }>
+        <Provider store={ store }>
             <BrowserRouter>
                 <App />
             </BrowserRouter>

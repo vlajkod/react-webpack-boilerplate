@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { routesCodes } from 'constants/routes';
@@ -25,7 +25,7 @@ const Menu = () => (
             <NavLink
                 className='menu-link'
                 activeClassName='menu-link--active'
-                to={ '/404' }
+                to='/404'
                 exact
             >
                 404 Page

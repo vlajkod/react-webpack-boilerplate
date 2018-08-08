@@ -19,7 +19,7 @@ export default () => {
         // In production we adding only sagas middleware
         middleware = applyMiddleware(sagaMiddleware);
     } else {
-        //In development mode beside sagaMiddleware
+        // In development mode beside sagaMiddleware
         // logger and DevTools are added
         middleware = applyMiddleware(sagaMiddleware);
 
@@ -54,4 +54,4 @@ export default () => {
     return {
         store
     };
-}
+};

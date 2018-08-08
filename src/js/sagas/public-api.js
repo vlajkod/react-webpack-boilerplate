@@ -11,7 +11,6 @@ import api from 'api';
 // import { getCountries } from '../actions/country';
 function createGetPublicApis() {
     return function* (options) {
-        console.log('saga');
         try {
             const data = yield call(() => api.getPublicApi(options.id));
             const action = {
@@ -20,22 +19,22 @@ function createGetPublicApis() {
             };
 
             yield put(action);
-        } catch(error) {
+        } catch (error) {
             const action = {
                 type: GET_PUBLIC_API_ERROR,
                 error
-            }
+            };
 
-            yield put(action)
+            yield put(action);
         }
     };
 }
 
-export function* createGetPublicApisWatcher() {
-    yield takeLatest(GET_PUBLIC_API_START, getPublicApi)
-}
-
 export const getPublicApi = createGetPublicApis();
+
+export function* createGetPublicApisWatcher() {
+    yield takeLatest(GET_PUBLIC_API_START, getPublicApi);
+}
 
 export default [
     createGetPublicApisWatcher()

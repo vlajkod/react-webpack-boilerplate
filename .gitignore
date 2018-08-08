@@ -5,3 +5,5 @@ build
 *.log*
 _nogit
 package-lock.json
+.vscode/
+.idea/

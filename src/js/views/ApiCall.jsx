@@ -12,43 +12,43 @@ import { getPublicApi } from 'actions/public-api';
 }))
 export default class ApiCall extends Component {
     static propTypes = {
-        error: PropTypes.string,
-        loading: PropTypes.bool,
         publicApi: PropTypes.object,
         dispatch: PropTypes.func
     };
 
     componentWillMount() {
         const { dispatch, publicApi } = this.props;
-        
         if (!publicApi) {
             dispatch(getPublicApi());
         }
     }
 
-   renderFreeApi(publicApis) {
-       return publicApis.map((api, i) => {
-           return(
-               <div key={api.Link}>
-                   <p>{api.Description}</p>
-               </div>
-           )
-       })
-   }
-    
+    renderFreeApi(publicApis) {
+        return publicApis.map((api) => {
+            return (
+                <div key={ api.Link }>
+                    <p>
+                        { api.Description }
+                    </p>
+                </div>
+            );
+        });
+    }
+
     render() {
-        const {
-            publicApi,
-            loading
-        } = this.props;
+        const { publicApi } = this.props;
         return (
-            <div class="countries">
-                <h1>Public Apis</h1>
+            <div className='countries'>
+                <h1>
+                    Public Apis
+                </h1>
                 {publicApi && Object.keys(publicApi).map(category => {
                     const list = publicApi[category];
                     return (
                         <div>
-                            <h4>{category}</h4>
+                            <h4>
+                                { category }
+                            </h4>
                             { this.renderFreeApi(list) }
                         </div>
                     );

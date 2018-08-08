@@ -19,9 +19,9 @@ const actionMap = {
     },
     [GET_PUBLIC_API_SUCCESS]: (state, action) => {
         const publicApi = action.data.reduce((acc, item) => {
-            const key = item['Category'];
-            if(acc[key]) {
-               acc[key].push(item); 
+            const key = item.Category;
+            if (acc[key]) {
+                acc[key].push(item);
             } else {
                 acc[key] = [item];
             }

@@ -8,18 +8,16 @@ import Home from 'views/Home';
 import ApiCall from 'views/ApiCall';
 import NotFound from 'views/NotFound';
 
-
-
 class App extends Component {
     render() {
         return (
-            <div class='app'>
+            <div className='app'>
                 <Menu />
-                <div class='page'>
+                <div className='page'>
                     <Switch>
-                        <Route exact path= { routesCodes.HOME } component = { Home } />
-                        <Route path= { routesCodes.API } component = { ApiCall } />
-                        <Route path='*' component = { NotFound } />
+                        <Route exact path={ routesCodes.HOME } component={ Home } />
+                        <Route path={ routesCodes.API } component={ ApiCall } />
+                        <Route path='*' component={ NotFound } />
                     </Switch>
                 </div>
             </div>

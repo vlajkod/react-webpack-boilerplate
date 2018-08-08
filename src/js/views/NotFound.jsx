@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-
-// import PageNotFound from 'img/page-not-found';
+import React from 'react';
 
 const NotFound = () => (
-    <div className='not-found'></div>
+    <div className='not-found' />
 );
 
 export default NotFound;

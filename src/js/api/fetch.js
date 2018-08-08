@@ -1,3 +1,22 @@
+function handleApiError(message, data, status) {
+    let response = null;
+    let isObject = false;
+
+    try {
+        response = JSON.parse(data);
+        isObject = true;
+    } catch (e) {
+        response = data;
+    }
+
+    return {
+        response,
+        message,
+        status,
+        toString: () => `${ this.message }\nResponse:\n
+        ${ isObject ? JSON.stringify(this.response, null, 2) : this.response }`
+    };
+}
 
 export const fetchResource = (urlPath, path, userOptions = {}) => {
     const defaultOptions = {};
@@ -26,7 +45,6 @@ export const fetchResource = (urlPath, path, userOptions = {}) => {
 
     return fetch(url, options).then(responseObject => {
         response = responseObject;
-    
         if (response.status === 401) {
             // handle unauthorize requests
         }
@@ -44,32 +62,11 @@ export const fetchResource = (urlPath, path, userOptions = {}) => {
         }
 
         return parseResponse;
-    }).catch(error =>{
+    }).catch(error => {
         if (response) {
             throw handleApiError(`Request failed with status ${ response.status }.`, error, response.status);
         } else {
             throw handleApiError(error.toString(), null, 'REQUEST_FAILD');
         }
     });
-}
-
-function handleApiError(message, data, status) {
-    let response = null;
-    let isObject = false;
-
-    try {
-        response = JSON.parse(data);
-        isObject = true;
-    } catch(e) {
-        response = data;
-    }
-
-    return {
-        response,
-        message,
-        status,
-        toString: () => `${ this.message }\nResponse:\n${ isObject ? JSON.stringify(this.response, null, 2) : this.response }`
-    };
-}
-
-// export const fetchResource;
+};
