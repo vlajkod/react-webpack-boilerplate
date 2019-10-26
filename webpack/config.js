@@ -138,7 +138,7 @@ if (IS_PRODUCTION) {
                     options: {
                         sourceMap: true
                     }
-                }, 
+                },
                 {
                     loader: 'css-loader',
                     options: {
